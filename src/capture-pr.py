@@ -44,7 +44,10 @@ def run(server_class=HTTPServer, handler_class=S, port=8080):
 if __name__ == '__main__':
     from sys import argv
 
-    if len(argv) == 2:
+
+    if len(argv) == 3:
         run(port=int(argv[1]))
+        fh = logging.FileHandler(argv[2])
+        fh.setLevel(logging.DEBUG)
     else:
         run()
