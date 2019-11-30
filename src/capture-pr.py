@@ -51,7 +51,7 @@ if __name__ == '__main__':
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         fh.setFormatter(formatter)
         # add the handlers to the logger
-        logger.addHandler(fh)        
+        logging.addHandler(fh)        
         run(port=int(argv[1]))
     else:
         run()
