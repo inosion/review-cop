@@ -46,8 +46,12 @@ if __name__ == '__main__':
 
 
     if len(argv) == 3:
-        run(port=int(argv[1]))
         fh = logging.FileHandler(argv[2])
         fh.setLevel(logging.DEBUG)
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        fh.setFormatter(formatter)
+        # add the handlers to the logger
+        logger.addHandler(fh)        
+        run(port=int(argv[1]))
     else:
         run()
